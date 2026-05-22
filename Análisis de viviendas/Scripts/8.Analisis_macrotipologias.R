@@ -51,6 +51,7 @@ hogares <- measurements %>%
                         levels = c("Isolated","Childless Couple","Tradicional Nuclear","Single-Parent","Extended"))
   )
 save(hogares,file="Análisis de viviendas/Data/hogares.RData")
+
 # Asegurarnos de que existan tiene_extranjero y tiene_indigena
 # (en measurements ya deberían estar, pero por si acaso)
 if (!"tiene_extranjero" %in% names(hogares)) {
@@ -672,8 +673,3 @@ png("Análisis de viviendas/Analisis/matriz_subtipos_extendidos.png",
 grid.arrange(grobs = panel_extendido, ncol = 3,
              top = textGrob("Extended subgroups", gp = gpar(fontsize = 14)))
 dev.off()
-
-# =============================================================================
-# 6. GUARDAR DATASET FINAL
-# =============================================================================
-save(hogares, file = "Análisis de viviendas/Data/hogares_con_macrogrupo.RData")
